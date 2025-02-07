@@ -1,0 +1,23 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Flex container for body */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content area (flexible, grows to fill space) */
+main {
+    flex: 1;
+}
+
+.btn_primary{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: turquoise;
+    color: white;
+    font-weight: bold;
+}

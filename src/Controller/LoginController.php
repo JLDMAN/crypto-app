@@ -1,0 +1,24 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+
+class LoginController extends AbstractController
+{
+    #[Route('/login')]
+    public function index(): Response
+    {
+        return $this->render('login/login.html.twig');
+    }
+
+    #[Route('')]
+    public function load_login(): Response
+    {
+        return $this->render('login/login.html.twig');
+    }
+}

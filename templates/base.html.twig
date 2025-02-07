@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="uploads/favicon_image.png">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/styles.css">
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+        {% endblock %}
+    </head>
+    <body>
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+        {% include 'footer.html.twig' %}
+    </body>
+</html>
