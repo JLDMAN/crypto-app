@@ -5,6 +5,7 @@
     <title>{% block title %}Login{% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="uploads/favicon_image.png">
     <link rel="stylesheet" type="text/css" href="css/login.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"></link>
     {% block stylesheets %}
     {% endblock %}
 
@@ -19,13 +20,13 @@
         </div>
         <div class="center">
         <form action="" method="post">
-            <div class="space">
-                <input type="text" id="name_input" name="name_input" placeholder="Name" required>
+            <div class="small_space">
+                <input type="email" id="email_input" name="email_input" placeholder="example@email.com" required>
             </div>
-            <div class="">
-                <input type="password" id="password_input" name="password_input" placeholder="Password" required>
+            <div class="small_space">
+                <input type="password" id="password_input" name="password_input" placeholder="P@$$word" required>
             </div>
-            <div class="text-center">
+            <div class="small_space">
                 <button type="submit" class="btn_primary">Login</button>
             </div>
         </form>

@@ -3,13 +3,11 @@ html, body {
     margin: 0;
 }
 
-/* Flex container for body */
 body {
     display: flex;
     flex-direction: column;
 }
 
-/* Main content area (flexible, grows to fill space) */
 main {
     flex: 1;
 }
@@ -20,4 +18,21 @@ main {
     background-color: turquoise;
     color: white;
     font-weight: bold;
+    border: none;
 }
+
+.btn_primary:hover{
+    padding: 3px;
+    margin: 2px;
+}
+
+.btn_primary:active{
+    background-color: white;
+    color: turquoise;
+    border: 1px solid turquoise;
+}
+
+.small_space{
+    margin: 5%;
+}
+

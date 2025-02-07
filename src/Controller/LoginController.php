@@ -10,14 +10,8 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class LoginController extends AbstractController
 {
-    #[Route('/login')]
+    #[Route('/login', '')]
     public function index(): Response
-    {
-        return $this->render('login/login.html.twig');
-    }
-
-    #[Route('')]
-    public function load_login(): Response
     {
         return $this->render('login/login.html.twig');
     }
