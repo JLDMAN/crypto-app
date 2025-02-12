@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2>Sign Up</h2>
+
+        {% if registrationForm is defined %}
+            {{ form_start(registrationForm) }}
+            <div>
+                {{ form_label(registrationForm.user_name) }}
+                {{ form_widget(registrationForm.user_name) }}
+            </div>
+            <div>
+                {{ form_label(registrationForm.email) }}
+                {{ form_widget(registrationForm.email) }}
+            </div>
+            <div>
+                {{ form_label(registrationForm.password) }}
+                {{ form_widget(registrationForm.password) }}
+            </div>
+            <div>
+                {{ form_widget(registrationForm.submit) }}
+            </div>
+            {{ form_end(registrationForm) }}
+        {% else %}
+            <p>Error: Registration form is not defined!</p>
+        {% endif %}
+
+        <p>Already have an account? <a href="{{ path('load_login_page') }}">Login here</a></p>
+    </div>
+{% endblock %}
