@@ -1,33 +1,64 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Register{% endblock %}
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Register{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="uploads/favicon_image.png">
+    <link rel="stylesheet" type="text/css" href="css/register.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
 {% block body %}
-    <div class="container">
-        <h2>Sign Up</h2>
+    <div class="center container">
+        <div class="color-strip">
+            <p>Sign Up</p>
+        </div>
+
+        {% for message in app.flashes('error') %}
+            <div class="warning">{{ message }}</div>
+        {% endfor %}
 
         {% if registrationForm is defined %}
             {{ form_start(registrationForm) }}
-            <div>
-                {{ form_label(registrationForm.user_name) }}
-                {{ form_widget(registrationForm.user_name) }}
+
+            <div class="small_space">
+                {{ form_widget(registrationForm.user_name, {'attr': {'placeholder': 'Enter your username'}}) }}
+                {% for error in registrationForm.user_name.vars.errors %}
+                    <div class="alert alert-danger">{{ error.message }}</div>
+                {% endfor %}
             </div>
-            <div>
-                {{ form_label(registrationForm.email) }}
-                {{ form_widget(registrationForm.email) }}
+
+            <div class="small_space">
+                {{ form_widget(registrationForm.email, {'attr': {'placeholder': 'Enter your email'}}) }}
+                {% for error in registrationForm.email.vars.errors %}
+                    <div class="alert alert-danger">{{ error.message }}</div>
+                {% endfor %}
             </div>
-            <div>
-                {{ form_label(registrationForm.password) }}
-                {{ form_widget(registrationForm.password) }}
+
+            <div class="small_space">
+                {{ form_widget(registrationForm.password, {'attr': {'placeholder': 'Enter your password'}}) }}
+                {% for error in registrationForm.password.vars.errors %}
+                    <div class="alert alert-danger">{{ error.message }}</div>
+                {% endfor %}
             </div>
-            <div>
-                {{ form_widget(registrationForm.submit) }}
+
+            <div class="small_space">
+                {{ form_widget(registrationForm.submit, {'attr': {'class': 'btn_primary'}}) }}
             </div>
+
+            {# Display form errors beneath submit button #}
+            {% for error in registrationForm.vars.errors %}
+                <div class="alert alert-danger">{{ error.message }}</div>
+            {% endfor %}
+
             {{ form_end(registrationForm) }}
-        {% else %}
-            <p>Error: Registration form is not defined!</p>
         {% endif %}
 
-        <p>Already have an account? <a href="{{ path('load_login_page') }}">Login here</a></p>
+        <div class="small_space">
+            <p>Already have an account?</p>
+            <a href="{{ path('load_login_page') }}">Login here</a>
+        </div>
     </div>
 {% endblock %}
+</body>
+</html>

@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <title>{% block title %}Login{% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="uploads/favicon_image.png">
-    <link rel="stylesheet" type="text/css" href="css/login.css"></link>
-    <link rel="stylesheet" type="text/css" href="css/styles.css"></link>
-    {% block stylesheets %}
-    {% endblock %}
-
-    {% block javascripts %}
-    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
 {% block body %}
@@ -19,20 +14,21 @@
             <p>Login</p>
         </div>
         <div class="center">
-        <form action="" method="post">
+            <form method="post" onsubmit="console.log('Form submitted!');">
+                <div class="small_space">
+                    <input type="text" id="_username" name="_username" placeholder="example name" required>
+                </div>
+                <div class="small_space">
+                    <input type="password" id="password_input" name="password" placeholder="P@$$word" required>
+                </div>
+                <div class="small_space">
+                    <button type="submit" class="btn_primary">Login</button>
+                </div>
+            </form>
             <div class="small_space">
-                <input type="email" id="email_input" name="email_input" placeholder="example@email.com" required>
+                <p>Don't have an account?</p>
+                <a href="{{ path('load_register_page') }}">Register</a>
             </div>
-            <div class="small_space">
-                <input type="password" id="password_input" name="password_input" placeholder="P@$$word" required>
-            </div>
-            <div class="small_space">
-                <button type="submit" class="btn_primary">Login</button>
-            </div>
-        </form>
-        <div class="small_space">
-            <a href="{{ path('load_register_page') }}">Register</a>
-        </div>
         </div>
     </div>
 {% endblock %}
